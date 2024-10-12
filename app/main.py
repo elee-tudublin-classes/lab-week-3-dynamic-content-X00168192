@@ -32,9 +32,8 @@ async def index(request: Request):
     return templates.TemplateResponse("apod.html", {"request": request})
 
 @app.get("/params", response_class=HTMLResponse)
-async def index(request: Request):
-    return templates.TemplateResponse("params.html", {"request": request})
-
+async def index(request: Request, name : str | None = ""):
+    return templates.TemplateResponse("params.html", {"request": request, "name": name})
 
  
 
